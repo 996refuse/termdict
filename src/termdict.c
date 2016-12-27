@@ -83,9 +83,13 @@ main()
 
 
 
-    const int scr = XDefaultScreen(dpy);
-    ww = XCreateSimpleWindow(dpy, RootWindow(dpy, scr), 10, 10, 100, 100, 1,
-                            BlackPixel(dpy, scr), WhitePixel(dpy, scr));
+    //const int scr = XDefaultScreen(dpy);
+    //ww = XCreateSimpleWindow(dpy, RootWindow(dpy, scr), 10, 10, 100, 100, 1,
+    //                        BlackPixel(dpy, scr), WhitePixel(dpy, scr));
+    //ww = XCreateSimpleWindow(dpy, RootWindow(dpy, 0), 1, 1, 256, 256, 0, 
+    //                        BlackPixel (dpy, 0), BlackPixel(dpy, 0));
+    // create a dummy window, that we can use to end the blocking XNextEvent call
+    ww = XCreateSimpleWindow(dpy, RootWindow(dpy, 0), 10, 10, 10, 10, 0, 0, 0);
     XMapWindow(dpy, ww);
 
     const Atom xtarget = XInternAtom(dpy, "UTF8_STRING", 0),
