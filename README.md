@@ -18,7 +18,7 @@ make
 `
 # todo
 
-* hide the window
+* ~~hide the window~~
 * timeout callback
 * ~~pipeline friendly~~
 
