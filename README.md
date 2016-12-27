@@ -1,11 +1,26 @@
 # termdict
-a X dictionary lookup program running in terminal.
+a very tiny light small X dictionary lookup program can run in terminal.
 
+# dependency
+
+xlib
+youdao
+
+# install
+
+```bash
+pip install youdao
+
+git clone https://github.com/muchrooms/termdict.git
+make
+./obj/termdict | while read -r line; do echo "$line" ; done
+```
+`
 # todo
 
 * hide the window
 * timeout callback
-* pipeline friendly
+* ~~pipeline friendly~~
 
 # WTFPL
 

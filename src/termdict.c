@@ -213,7 +213,9 @@ static char *debounce(uchar *data) {
     int now = tv.tv_sec;
     
     if(now - tmp > 0) {
-        printf("%s\n", data);
+        //printf("%s\n", data);
+        fprintf(stdout, "%s\n", data);
+        fflush(stdout);
     }
         //printf("\tdata: %s\n\n", data);
     //printf("tttttttttttttt %d  ttttttt \n", now);
