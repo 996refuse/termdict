@@ -13,7 +13,7 @@ pip install youdao
 
 git clone https://github.com/muchrooms/termdict.git
 make
-./obj/termdict | while read -r line; do echo "$line" ; done
+./obj/termdict | while read -r line; do yd "$line" ; done
 ```
 `
 # todo
