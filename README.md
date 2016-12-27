@@ -1,7 +1,11 @@
 # termdict
 a X dictionary lookup program running in terminal.
 
+# todo
 
+* hide the window
+* timeout callback
+* pipeline friendly
 
 # WTFPL
 
