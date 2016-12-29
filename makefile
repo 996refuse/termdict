@@ -1,6 +1,10 @@
 .PHONY: all
 all: termdict
 
+.PHONY: install
+install:
+	cp obj/termdict /usr/bin
+
 .PHONY: clean
 clean:
 	rm -rf obj/*

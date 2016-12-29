@@ -13,7 +13,10 @@ pip install youdao
 
 git clone https://github.com/muchrooms/termdict.git
 make
-./obj/termdict | while read -r line; do yd "$line" ; done
+sudo make install
+
+# enjoy it!
+termdict | while read -r line; do yd "$line" ; done
 ```
 `
 # todo
@@ -21,6 +24,8 @@ make
 * ~~hide the window~~
 * timeout callback
 * ~~pipeline friendly~~
+* remove chaos code
+* correct warning
 
 # WTFPL
 

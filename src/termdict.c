@@ -19,7 +19,7 @@ typedef unsigned char uchar;
 
 //static void selrequest(XEvent *);
 static void selnotify(XEvent *);
-static char *debounce(uchar *);
+static void debounce(uchar *);
 
 //struct timespec spec;
 
@@ -90,7 +90,7 @@ main()
     //                        BlackPixel (dpy, 0), BlackPixel(dpy, 0));
     // create a dummy window, that we can use to end the blocking XNextEvent call
     ww = XCreateSimpleWindow(dpy, RootWindow(dpy, 0), 10, 10, 10, 10, 0, 0, 0);
-    XMapWindow(dpy, ww);
+    //XMapWindow(dpy, ww);
 
     const Atom xtarget = XInternAtom(dpy, "UTF8_STRING", 0),
         clipboard = XInternAtom(dpy, "PRIMARY", 0);
@@ -186,30 +186,32 @@ static void
 selnotify(XEvent *const eventp)
 {
     //printf("selnotify!\n");
-
+    
     long nitems, rem;
     int format;
     uchar *data;
     Atom type;
 
+    
     if(XGetWindowProperty(dpy, ww, XA_PRIMARY, 0, 32, False, AnyPropertyType,
                 &type, &format, &nitems, &rem, &data)) {
         fprintf(stderr, "Clipboard allocation failed\n");
         return;
     }
-    assert(0 == rem);
+    
+    //assert(0 == rem);
 
-    {
-        const XAnyEvent *const ev = (XAnyEvent *)eventp;
+    //{
+    //    const XAnyEvent *const ev = (XAnyEvent *)eventp;
         //printf ("\tSelectionNotify event, type %d, serial %ld, synthetic %s, window 0x%lx, time %lu\n",
         //    ev->type, ev->serial, ev->send_event ? Yes : No, ev->window, ((XSelectionEvent *)eventp)->time);
-    }
+    //}
     // -- xev
     debounce(data);
 }
 
 
-static char *debounce(uchar *data) {
+static void debounce(uchar *data) {
 
     int tmp = tv.tv_sec;
     //clock_gettime(CLOCK_REALTIME, &spec);
